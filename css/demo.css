@@ -1,0 +1,42 @@
+*,
+*:after,
+*:before {
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+.f_line {
+    margin-bottom: 10px;
+}
+label {
+    display: block;
+    font-weight: bold;
+    cursor: pointer;
+}
+.form_demo {
+    max-width: 320px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-style: 3px;
+    margin: auto;
+}
+.f_input {
+    width: 300px;
+    padding-right: 30px;
+    border: 1px solid #ccc;
+    height: 28px;
+    text-indent:5px;
+}
+
+.f_input:focus:invalid,
+.f_input.invalid {
+    border: 1px solid #f00;
+    background: transparent url('img/invalid.png') top right no-repeat;
+}
+.f_input:focus:invalid,
+.f_input:focus:valid {
+    outline: none;
+}
+.f_input:required:valid {
+    border: 1px solid #0a0;
+    background: transparent url('img/valid.png') top right no-repeat;
+}

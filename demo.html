@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Input validation</title>
+    <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+    <h1>Test input validation</h1>
+    <form method="post" class="form_demo" id="myform">
+        <div class="f_line">
+            <label for="email">Email</label>
+            <input class="f_input" id="email" type="email" placeholder="john@doe.com" autocomplete="off" required>
+        </div>
+
+        <div class="f_line">
+            <label for="password">password</label>
+            <input class="f_input" id="password" type="password" autocomplete="off" required minlength=3 placeholder="azrtyuiop">
+        </div>
+
+        <div class="f_line">
+            <label for="passwordcheck">password check</label>
+            <input class="f_input" id="passwordcheck" type="password" autocomplete="off" required minlength=3 placeholder="azrtyuiop" data-validation-matches="password" data-validation-matches-message="Passwords should match">
+        </div>
+
+        <div class="f_line">
+            <label for="nickname">nickname</label>
+            <input class="f_input" id="nickname" type="text" autocomplete="off" required minlength=3 placeholder="johndoe69" pattern="^[a-zA-Z0-9][a-zA-Z0-9_]+$" title="Only letters, numbers and _. Must not begin with _">
+        </div>
+
+        <div class="f_line">
+            <label for="gender-male">
+                <input type="radio" id="gender-male" name="gender" required> Male
+            </label>
+            <label for="gender-female">
+                <input type="radio" id="gender-female" name="gender" required> Female
+            </label>
+            <label for="gender-other">
+                <input type="radio" id="gender-other" name="gender" required> Other
+            </label>
+        </div>
+
+        <div class="f_line">
+            <label for="bith-day">Bith date</label>
+            <select name="birth-day" id="birth-day" required>
+                <option value="">day</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+            </select>
+            <select name="birth-month" id="birth-month" required>
+                <option value="">month</option>
+                <option value="01">Jan</option>
+                <option value="02">Feb</option>
+                <option value="03">Mar</option>
+            </select>
+            <select name="birth-year" id="birth-year" required>
+                <option value="">year</option>
+                <option value="2000">2001</option>
+                <option value="2001">2002</option>
+                <option value="2003">2003</option>
+            </select>
+        </div>
+
+        <div class="f_line">
+            <label for="zipcode">zipcode</label>
+            <input class="f_input" type="text" id="zipcode" placeholder="75001" required pattern="[0-9]{6,6}" title="6 digits">
+        </div>
+
+
+        <div class="f_line">
+            <label for="city">city</label>
+            <input class="f_input" type="text" id="city" placeholder="paris">
+        </div>
+        <div class="f_line">
+            <label for="address">address</label>
+            <input class="f_input" type="text" id="address" placeholder="12 place vendome">
+        </div>
+
+
+        <div class="f_line">
+            <input type="submit" value="submit">
+            <input type="reset" value="cancel">
+        </div>
+    </form>
+
+    <script src="js/simplevalidation.js"></script>
+    <script>
+    (function(){
+        'use strict';
+        var form = document.getElementById('myform');
+
+        SimpleValidation(form);
+    })();
+    </script>
+</body>
+</html>
