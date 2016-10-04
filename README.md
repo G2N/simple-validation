@@ -1,6 +1,6 @@
 # SimpleValidation
 A super simple Form Validation with CSS and just a bit of JavaScript.
-Based on [this article]http://alistapart.com/article/forward-thinking-form-validation
+Based on [this article](http://alistapart.com/article/forward-thinking-form-validation)
 by Ryan Seddon.
 
 ## Basics
