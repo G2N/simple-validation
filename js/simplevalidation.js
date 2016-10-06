@@ -19,7 +19,7 @@
             throw 'SimpleValidation `el` must be an HTMLElement';
         }
 
-        var form = el, 
+        var form = el,
 			inputs = el.querySelectorAll('[required]');
 
 		/**
@@ -40,6 +40,9 @@
 			}
 		}
 
+		/**
+		 * Checks that a field's value matches another one's
+		 */
 		function validateMatchingField(evt) {
 			var input = evt.target,
 			selector = '[name='+input.dataset.validationMatches+'], #'+input.dataset.validationMatches,
@@ -54,11 +57,32 @@
 			}
 		}
 
+		/**
+		 * Checks that a field's value differs from another one's
+		 */
+		function validateDifferentField(evt) {
+			var input = evt.target,
+			selector = '[name='+input.dataset.validationDiffer+'], #'+input.dataset.validationDiffer,
+			message = input.dataset.validationDifferMessage || 'This field should match',
+			match = form.querySelector(selector);
+
+			if(input.value === match.value) {
+				input.setCustomValidity(message);
+			}
+			else {
+				input.setCustomValidity('');
+			}
+		}
+
         for (var i = 0; i < inputs.length; i++) {
             inputs[i].addEventListener('focus', resetValidityClass);
             inputs[i].addEventListener('blur', addValidityClass);
             if(inputs[i].dataset.validationMatches) {
                 inputs[i].addEventListener('input', validateMatchingField);
+            }
+
+			if(inputs[i].dataset.validationDiffer) {
+                inputs[i].addEventListener('input', validateDifferentField);
             }
         }
     }
