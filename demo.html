@@ -16,8 +16,13 @@
         </div>
 
         <div class="f_line">
+            <label for="oldpassword">old password</label>
+            <input class="f_input" id="oldpassword" type="password" autocomplete="off" required minlength=3 placeholder="azrtyuiop">
+        </div>
+
+        <div class="f_line">
             <label for="password">password</label>
-            <input class="f_input" id="password" type="password" autocomplete="off" required minlength=3 placeholder="azrtyuiop">
+            <input class="f_input" id="password" type="password" autocomplete="off" required minlength=3 placeholder="azrtyuiop" data-validation-differ="oldpassword" data-validation-differ-message="New password should not match the old one">
         </div>
 
         <div class="f_line">
